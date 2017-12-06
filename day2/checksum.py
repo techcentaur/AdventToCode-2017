@@ -1,26 +1,32 @@
-def checksum(m):
+
+def cal(t):
 	sum=0
-	
-	for i in len(m[]):
-		(l,s)=largest_smallest(m[i][])
-		sum+=l-s
-	
-	print(sum)
+	for i in t:
+		j=l_n_s(i)
+		sum+=j[0]-j[1]
+	return sum
+
+def l_n_s(i):
+	l=int(i[0])
+	s=int(i[0])
+	for p in i:
+		if int(p)>l:
+			l=int(p)
+		if int(p)<s:
+			s=int(p)
+	return [l,s]
 
 
 
-def largest_smallest(l):
-	larg=l[0]
-	small=l[0]
-	
-	for i in l:
-		if int(i)>l:
-			larg=int(i)
-		if int(i)<s:
-			small=int(i)
+if __name__=="__main__":
 
-	return (larg,small)
+	filename=input("filename?")
 
-if __name__="__main__":
-	m=[][]
-	checksum(m)
+	text=[]
+	with open(filename,'r') as f:
+		for line in f:
+			tok=[]
+			tok=line[:-1].split("\t")
+			text.append(tok)
+	s = cal(text)
+	print(s)
